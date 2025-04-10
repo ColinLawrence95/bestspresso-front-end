@@ -1,4 +1,3 @@
-// src/components/ProductDetail.js
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
@@ -8,7 +7,7 @@ function ProductDetail() {
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
-  const [newRating, setNewRating] = useState(''); // For user input
+  const [newRating, setNewRating] = useState(''); 
 
   const fetchProduct = useCallback(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/products/${id}`)
@@ -20,11 +19,11 @@ function ProductDetail() {
         setError('Failed to load product details');
         console.error(err);
       });
-  }, [id]); // Dependencies: id (setProduct and setNewRating are stable)
+  }, [id]); 
 
   useEffect(() => {
     fetchProduct();
-  }, [id, fetchProduct]); // Include fetchProduct
+  }, [id, fetchProduct]); 
 
   const handleAddToCart = () => {
     const token = localStorage.getItem('token');
@@ -66,7 +65,7 @@ function ProductDetail() {
     )
       .then(() => {
         setError(null);
-        fetchProduct(); // Refresh product data
+        fetchProduct(); 
         alert('Rating updated successfully!');
       })
       .catch(err => {

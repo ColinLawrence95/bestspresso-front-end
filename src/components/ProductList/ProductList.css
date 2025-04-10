@@ -1,0 +1,29 @@
+.page-container{
+    display: flex;
+}
+
+.search-fields{
+    width: 20%;
+}
+
+.product-list{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    height: 100%;
+    width: 50%;
+    padding: 0;
+}
+.product-list-elements{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: lightgray;
+    border: 1px solid red;
+    width: 180px;
+    height: 250px;
+    padding: 0;
+    margin: 0;
+}

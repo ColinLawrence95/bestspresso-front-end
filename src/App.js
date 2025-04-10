@@ -2,12 +2,12 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import axios from "axios";
-import NavBar from "./components/NavBar";
-import ProductList from "./components/ProductList";
-import ProductDetail from "./components/ProductDetail";
-import PurchaseHistory from './components/PurchaseHistory';
-import Cart from "./components/Cart";
-import Login from "./components/Login";
+import NavBar from "./components/NavBar/NavBar";
+import ProductList from "./components/ProductList/ProductList";
+import ProductDetail from "./components/ProductDetails/ProductDetail";
+import PurchaseHistory from './components/PurchaseHistory/PurchaseHistory';
+import Cart from "./components/Cart/Cart";
+import Login from "./components/Login/Login";
 import "./App.css";
 
 function App() {
