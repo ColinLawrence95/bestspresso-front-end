@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./ProductList.css"
+import "./ProductList.css";
+import { motion } from "motion/react";
 
 function ProductList() {
     const [products, setProducts] = useState([]);
@@ -45,40 +46,58 @@ function ProductList() {
 
     return (
         <div className="page-container">
-           
             <div className="search-fields">
-                <label htmlFor="search">Search by name: </label>
-                <input
-                    type="text"
-                    id="search"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    placeholder="Enter coffee name"
-                />
-                <select value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
-                    <option value="name">Name (A-Z)</option>
-                    <option value="highP">Highest Price</option>
-                    <option value="lowP">Lowest Price</option>
-                    <option value="highR">Best rated</option>
-                </select>
+                <div className="name-search">
+                    <motion.input
+                        type="text"
+                        id="search"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        placeholder="Search"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 1}}
+                    />
+                </div>
+                <motion.select
+                    value={sortOption}
+                    onChange={(e) => setSortOption(e.target.value)}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 20}}
+                    transition={{ duration: 0.5, delay: 1 }}
+                >
+                     <option value="name">Name (A-Z)</option>
+              <option value="highP">Highest Price</option>
+              <option value="lowP">Lowest Price</option>
+              <option value="highR">Best Rated</option>
+                </motion.select>
             </div>
-            <div className="product-list">
-                    {sortedProducts.length > 0 ? (
-                        sortedProducts.map((product) => (
-                            <div key={product.id} className="product-list-elements">
-                             
-                                    <Link to={`/products/${product.id}`}>
-                                        <h3>{product.name}</h3> 
-                                        <h4>${product.price.toFixed(2)}</h4> 
-                                        <h5>(Rating: {product.rating}/5)</h5>
-                                    </Link>
-                               
-                            </div>
-                        ))
-                    ) : (
-                        <p>No products match your search.</p>
-                    )}
-            </div>
+            <motion.div 
+            className="product-list"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0}}
+            transition={{ duration: .5, delay: 0.5 }}
+            >
+                {sortedProducts.length > 0 ? (
+                    sortedProducts.map((product) => (
+                        <motion.div
+                            className="product-list-elements"
+                            key={product.id}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ type: "spring", bounce: 0.7 }}
+                        >
+                            <div className="product-image"></div>
+                            <Link to={`/products/${product.id}`}>
+                                <h3 id="product-name">{product.name}</h3>
+                                <h4 id="product-price">${product.price.toFixed(2)}</h4>
+                                <h5 id="product-rating">✨{product.rating}</h5>
+                            </Link>
+                        </motion.div>
+                    ))
+                ) : (
+                    <p>No products match your search.</p>
+                )}
+            </motion.div>
         </div>
     );
 }

@@ -16,8 +16,9 @@ function NavBar({ balance, onLogout }) {
     <nav>
       {isLoggedIn ? (
         <>
-         <span style={{ marginRight: '10px' }}>
-            🪙${typeof balance === 'number' ? balance.toFixed(2) : 'Loading...'}
+         <span >
+         {typeof balance === 'number' ? `🪙${balance.toFixed(2)}` : '🪙'}
+
           </span>
         <Link to="/">Home</Link>
         <Link to="/products">Browse</Link>
