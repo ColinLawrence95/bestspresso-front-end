@@ -127,12 +127,15 @@ function ProductList() {
                             ></div>
                            
                                 <div className="product-list-element">
+                                    <div id="top-tile-row">
                                     <h3 id="product-name">{product.name}</h3>
-                                    <h4 id="product-price">${product.price.toFixed(2)}</h4>
                                     <h5 id="product-rating">
                                         <FaStar color="orange" style={{ marginRight: "4px" }} />
                                         {product.rating}
                                     </h5>
+                                    </div>
+                                    <h4 id="product-price">${product.price.toFixed(2)}</h4>
+                                    
                                 </div>
                             </Link>
                         </motion.div>

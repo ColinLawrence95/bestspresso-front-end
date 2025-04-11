@@ -119,10 +119,16 @@ function ProductDetail() {
     };
 
     if (error) return <div>{error}</div>;
-    if (!product) return <div>Loading...</div>;
+    if (!product) return <div></div>;
 
     return (
-        <div className="details-page-container">
+        <motion.div
+            className="details-page-container"
+            initial={{ opacity: 0, x: -75 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 1 }}
+            exit={{ opacity: 0, x: -100 }}
+        >
             <div
                 className="details-product-image"
                 style={{ backgroundImage: `url("${getRandomCoffeeImage()}")` }}
@@ -166,7 +172,7 @@ function ProductDetail() {
                     <Link to="/products">Back to Products</Link>
                 </motion.div>
             </div>
-        </div>
+        </motion.div>
     );
 }
 

@@ -27,7 +27,7 @@ input {
     margin: 10px 0 0 0;
 }
 .details-product-image {
-    width: 500px;
+    width: 1000px;
     height: 500px;
     background-size: cover; 
     background-position: center;
@@ -36,7 +36,7 @@ input {
   }
 .details-product-desc{
     font-family: "Charm";
-    
+    font-size: 30px;
     margin: 0;
 }
 
@@ -46,19 +46,23 @@ input {
     justify-content: left;
 }
 .rating input{
-    width: 40px;
+    width: 35px;
+    height: 30px;
     margin-bottom: 10px;
     margin-right: 10px;
     margin-left: 8px;
+    font-size: 20px
 }
 .rating h4{
     margin: 4px 0 0 0;
+    font-size: 30px;
 }
 .rating h3{
     margin: 0 10px 0 0;
 }
 .quantity h4{
     margin: 20px 0 10px 0;
+    font-size: 30px;
 }
 .quantity input{
     margin: 0 10px 10px 0;
@@ -66,7 +70,7 @@ input {
     font-size: 20px;
 }
 .products-link {
-    margin-top: 105px;
+    margin-top: 90px;
   
     width: 150px;
 }
@@ -75,4 +79,10 @@ input {
     font-weight: 900;
     border-radius: 8px;
     text-align: left;
+}
+button{
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, .3);
 }
