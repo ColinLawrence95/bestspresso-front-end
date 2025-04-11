@@ -77,7 +77,7 @@ function ProductList() {
                 className="search-fields"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
+                transition={{ duration: 0.5, delay: 1 }}
             >
                 <h4 id="product-list-title">Our Products</h4>
                 <div className="name-search">
@@ -86,7 +86,7 @@ function ProductList() {
                         id="search"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        placeholder="   Search by Name"
+                        placeholder="Search by Name"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 1 }}

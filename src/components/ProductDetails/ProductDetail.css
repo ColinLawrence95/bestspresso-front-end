@@ -1,0 +1,78 @@
+.details-page-container{
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(99, 45, 20, 0.87);
+}
+.details-product-name, .details-product-desc, .details-product-price, .details-product-stock, .rating, .quantity, .products-link{
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
+    color: whitesmoke;
+    font-family: "Red Hat Display";
+}
+input {
+    border-radius: 5px;
+}
+.details-product-name{
+
+    font-family: "Red Hat Display";
+    font-size: 70px;
+    margin: 0;
+   
+}
+.details-product-price{
+    font-size: 25px;
+    margin: 10px 0 20px 0;
+}
+.details-product-stock{
+    font-size: 25px;
+    margin: 10px 0 0 0;
+}
+.details-product-image {
+    width: 500px;
+    height: 500px;
+    background-size: cover; 
+    background-position: center;
+    border-radius: 8px;
+    margin: 10px
+  }
+.details-product-desc{
+    font-family: "Charm";
+    
+    margin: 0;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.rating input{
+    width: 40px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 8px;
+}
+.rating h4{
+    margin: 4px 0 0 0;
+}
+.rating h3{
+    margin: 0 10px 0 0;
+}
+.quantity h4{
+    margin: 20px 0 10px 0;
+}
+.quantity input{
+    margin: 0 10px 10px 0;
+    width: 50px;
+    font-size: 20px;
+}
+.products-link {
+    margin-top: 105px;
+  
+    width: 150px;
+}
+.products-link a {
+    font-family: "Red Hat Display";
+    font-weight: 900;
+    border-radius: 8px;
+    text-align: left;
+}

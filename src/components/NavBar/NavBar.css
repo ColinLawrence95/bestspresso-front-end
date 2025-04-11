@@ -70,7 +70,7 @@ nav {
 #flavor-text {
     color: rgb(104, 46, 19);
     font-family: "Red Hat Display";
-    text-shadow: 0px 4px 6px rgb(180, 180, 180);
+    text-shadow: 0px 4px 6px rgba(133, 132, 132, 0.658);
     margin: 60px 50px 0 0;
     font-size: 30px;
     font-weight: 700;
@@ -87,7 +87,6 @@ nav {
     background-color: rgba(114, 96, 85, 0.685);
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
     width: 309px;
-    margin-bottom: 5px;
 }
 
 .sidebar-menu a {

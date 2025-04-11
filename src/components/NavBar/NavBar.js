@@ -38,13 +38,13 @@ function NavBar({ balance, onLogout }) {
             className="nav-bar-wrapper"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
+            transition={{ duration: 0.5, delay: 1 }}
         >
             <motion.nav
                 className="nav-bar-container"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
+                transition={{ duration: 0.5, delay: 1 }}
             >
                 <div className="nav-bar-header">
                     <h1 className="hamburger" onClick={toggleMenu}>
