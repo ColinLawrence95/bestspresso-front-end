@@ -1,11 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
+* {
     box-sizing: border-box;
 }
-body, p{
+body,
+p {
     margin: 5px;
 }
-nav{
+nav {
     background-color: rgba(114, 96, 85, 0.993);
     padding: 10px 99.5% 10px 10px;
     color: whitesmoke;
@@ -14,71 +17,96 @@ nav{
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
     width: 100%;
     max-width: 200px;
-
 }
-.nav-bar-wrapper{
+.nav-bar-wrapper {
     background-color: rgba(114, 96, 85, 0.5);
     display: flex;
     justify-content: center;
     align-items: left;
     flex-direction: column;
 }
-.hero-title{
+.hero-title {
     position: relative;
     left: 43%;
     text-align: left;
 }
-.nav-bar-container{
+.nav-bar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.nav-bar-header{
+.nav-bar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.nav-menu{
+.nav-menu {
     display: flex;
     position: relative;
     flex-direction: column;
     left: 29%;
 }
-.hamburger{
+.hamburger {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 0 1px 5px;
+    margin: 0 0 1px 10px;
     font-size: 30px;
     width: 20px;
+    cursor: pointer;
 }
-.title{
+.title {
     color: whitesmoke;
-    font-family: "Azeret Mono";
+    font-family: "Red Hat Display";
     font-size: 25px;
     width: 400px;
     padding-left: 25px;
     margin: 0;
 }
-.hero{
+.hero {
     display: flex;
+    justify-content: space-between;
 }
-.sidebar-menu, .sidebar-menu{
+#flavor-text {
+    color: rgb(104, 46, 19);
+    font-family: "Red Hat Display";
+    text-shadow: 0px 4px 6px rgb(180, 180, 180);
+    margin: 60px 50px 0 0;
+    font-size: 30px;
+    font-weight: 700;
+    font-style: italic;
+}
+#team-sign {
+    margin-left: 550px;
+    font-style: normal;
+    font-weight: 900;
+}
+.sidebar-menu {
     display: flex;
     flex-direction: column;
-    background-color: rgba(114, 96, 85, 0.993);
-    width: 340px;
+    background-color: rgba(114, 96, 85, 0.685);
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
+    width: 309px;
     margin-bottom: 5px;
-    margin-right: 10px;
 }
 
 .sidebar-menu a {
     color: whitesmoke;
+    font-family: "Red Hat Display";
+    font-weight: bold;
     display: flex;
     margin: 5px 5px 5px 10px;
-
 }
 
-h3{
-    margin-left: 10px
+h3 {
+    margin: 5px 0 5px 10px;
+    color: whitesmoke;
+}
+a:hover {
+    transform: scale(1.01);
+    font-weight: 900;
+}
+a {
+    transition: transform 0.1s ease-in-out;
+    font-family: "Charm";
 }

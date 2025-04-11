@@ -65,31 +65,21 @@ function NavBar({ balance, onLogout }) {
                 >
                     {isLoggedIn ? (
                         <>
-                            <h3>👤 Welcome {isLoggedIn ? username : "guest"}</h3>
-
-                            {typeof balance === "number"
-                                ? `🪙${balance.toFixed(2)}`
-                                : "🪙"}
+                            <h3>
+                                Welcome {isLoggedIn ? username : "guest"}{" "}
+                                {typeof balance === "number" ? `🪙${balance.toFixed(2)}` : "🪙"}
+                            </h3>
 
                             <Link to="/" onClick={() => setIsMenuOpen(false)}>
                                 Home
                             </Link>
-                            <Link
-                                to="/products"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
+                            <Link to="/products" onClick={() => setIsMenuOpen(false)}>
                                 Browse
                             </Link>
-                            <Link
-                                to="/cart"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
+                            <Link to="/cart" onClick={() => setIsMenuOpen(false)}>
                                 Cart
                             </Link>
-                            <Link
-                                to="/purchases"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
+                            <Link to="/purchases" onClick={() => setIsMenuOpen(false)}>
                                 Purchases
                             </Link>
                             <Link onClick={handleLogout}>Logout</Link>
@@ -99,21 +89,22 @@ function NavBar({ balance, onLogout }) {
                             <Link to="/" onClick={() => setIsMenuOpen(false)}>
                                 Home
                             </Link>
-                            <Link
-                                to="/products"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
+                            <Link to="/products" onClick={() => setIsMenuOpen(false)}>
                                 Browse
                             </Link>
-                            <Link
-                                to="/login"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
+                            <Link to="/login" onClick={() => setIsMenuOpen(false)}>
                                 Login
                             </Link>
                         </>
                     )}
                 </motion.div>
+                <h1 id="flavor-text">
+                    "Crafted for Coffee Lovers, by Coffee Lovers.
+                    <br />
+                    Join the Bestpresso family—where passion brews in every cup."
+                    <br />
+                    <span id="team-sign">- The Bestpresso Team</span>
+                </h1>
             </div>
         </motion.div>
     );
