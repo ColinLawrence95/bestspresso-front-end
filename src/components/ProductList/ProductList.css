@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Stalinist+One&display=swap");
+
 body {
     font-family: "Noto Sans Mono";
     background-color: #e2ddd2;
@@ -7,27 +8,37 @@ body {
 
 a {
     text-decoration: none;
-    color: black;
+    color: inherit;
 }
 .page-container {
     display: flex;
-}
+    align-items: top;
+    flex-direction: column;
 
+}
+input{
+    width: 130px;
+}
 .search-fields {
-    width: 200px;
+    display: flex;
+    margin: 5px 0 5px 0;
+    background-color: rgba(114, 96, 85, 0.5);
+    padding: 0 0 5px 0px;
+    margin: 0;
 }
 .name-search {
     text-align: center;
 }
 .product-list {
     display: flex;
-    justify-content: left;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     border: 1px solid black;
     background-color: rgba(99, 45, 20, 0.87);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
     height: 100%;
-    width: 1415px;
-    max-width: 80%;
+    width: 100%;
     padding: 0;
 }
 .product-list-elements {
@@ -38,8 +49,8 @@ a {
     text-align: left;
     background-color: lightgray;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
-    width: 180px;
-    height: 200px;
+    width: 285px;
+    height: 300px;
     margin: 10px;
 }
 
