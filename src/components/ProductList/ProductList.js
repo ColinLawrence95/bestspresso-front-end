@@ -72,7 +72,7 @@ function ProductList() {
     if (error) return <div>{error}</div>;
 
     return (
-        <div className="page-container">
+        <div className="products-page-container">
             <motion.div
                 className="search-fields"
                 initial={{ opacity: 0, x: -20 }}
@@ -141,7 +141,7 @@ function ProductList() {
                         </motion.div>
                     ))
                 ) : (
-                    <p>No products match your search.</p>
+                    <h1 id="products-no-match">No products match your search.</h1>
                 )}
             </motion.div>
         </div>

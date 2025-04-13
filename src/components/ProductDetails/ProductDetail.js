@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import "./ProductDetail.css";
+import { FaStar } from "react-icons/fa";
+import { motion } from "motion/react";
 import coffee1 from "../../images/coffee/coffee1.jpg";
 import coffee2 from "../../images/coffee/coffee2.jpg";
 import coffee3 from "../../images/coffee/coffee3.jpg";
@@ -12,8 +14,7 @@ import coffee7 from "../../images/coffee/coffee7.jpg";
 import coffee8 from "../../images/coffee/coffee8.jpg";
 import coffee9 from "../../images/coffee/coffee9.jpg";
 import coffee10 from "../../images/coffee/coffee10.jpg";
-import { FaStar } from "react-icons/fa";
-import { motion } from "motion/react";
+
 
 const coffeeImages = [
     coffee1,
@@ -126,7 +127,7 @@ function ProductDetail() {
             className="details-page-container"
             initial={{ opacity: 0, x: -75 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
             exit={{ opacity: 0, x: -100 }}
         >
             <div

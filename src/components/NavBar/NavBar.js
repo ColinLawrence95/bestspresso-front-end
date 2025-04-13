@@ -33,6 +33,9 @@ function NavBar({ balance, onLogout }) {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
+    const MotionLink = motion.create(Link);
+
     return (
         <motion.div
             className="nav-bar-wrapper"
@@ -47,9 +50,14 @@ function NavBar({ balance, onLogout }) {
                 transition={{ duration: 0.5, delay: 1 }}
             >
                 <div className="nav-bar-header">
-                    <h1 className="hamburger" onClick={toggleMenu}>
+                    <motion.h1
+                        className="hamburger"
+                        onClick={toggleMenu}
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: "spring", bounce: 0.7 }}
+                    >
                         {isMenuOpen ? "✖ " : "c☰"}
-                    </h1>
+                    </motion.h1>
                     <h2 className="title">Bestpresso Coffee</h2>
                 </div>
             </motion.nav>
@@ -70,31 +78,57 @@ function NavBar({ balance, onLogout }) {
                                 {typeof balance === "number" ? `🪙${balance.toFixed(2)}` : "🪙"}
                             </h3>
 
-                            <Link to="/" onClick={() => setIsMenuOpen(false)}>
+                            <MotionLink
+                                to="/"
+                                onClick={() => setIsMenuOpen(false)}
+                                whileHover={{ scale: 1.01 }}
+                                transition={{ type: "spring", bounce: 0.7 }}
+                            >
                                 Home
-                            </Link>
-                            <Link to="/products" onClick={() => setIsMenuOpen(false)}>
+                            </MotionLink>
+                            <MotionLink
+                                to="/products"
+                                onClick={() => setIsMenuOpen(false)}
+                                whileHover={{ scale: 1.01 }}
+                                transition={{ type: "spring", bounce: 0.7 }}
+                            >
                                 Browse
-                            </Link>
-                            <Link to="/cart" onClick={() => setIsMenuOpen(false)}>
+                            </MotionLink>
+                            <MotionLink
+                                to="/cart"
+                                onClick={() => setIsMenuOpen(false)}
+                                whileHover={{ scale: 1.01 }}
+                                transition={{ type: "spring", bounce: 0.7 }}
+                            >
                                 Cart
-                            </Link>
-                            <Link to="/purchases" onClick={() => setIsMenuOpen(false)}>
+                            </MotionLink>
+                            <MotionLink
+                                to="/purchases"
+                                onClick={() => setIsMenuOpen(false)}
+                                whileHover={{ scale: 1.01 }}
+                                transition={{ type: "spring", bounce: 0.7 }}
+                            >
                                 Purchases
-                            </Link>
-                            <Link onClick={handleLogout}>Logout</Link>
+                            </MotionLink>
+                            <MotionLink
+                                onClick={handleLogout}
+                                whileHover={{ scale: 1.01 }}
+                                transition={{ type: "spring", bounce: 0.7 }}
+                            >
+                                Logout
+                            </MotionLink>
                         </>
                     ) : (
                         <>
-                            <Link to="/" onClick={() => setIsMenuOpen(false)}>
+                            <MotionLink to="/" onClick={() => setIsMenuOpen(false)}>
                                 Home
-                            </Link>
-                            <Link to="/products" onClick={() => setIsMenuOpen(false)}>
+                            </MotionLink>
+                            <MotionLink to="/products" onClick={() => setIsMenuOpen(false)}>
                                 Browse
-                            </Link>
-                            <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                            </MotionLink>
+                            <MotionLink to="/login" onClick={() => setIsMenuOpen(false)}>
                                 Login
-                            </Link>
+                            </MotionLink>
                         </>
                     )}
                 </motion.div>

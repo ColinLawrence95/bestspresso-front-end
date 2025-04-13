@@ -9,7 +9,7 @@ p {
     margin: 5px;
 }
 nav {
-    background-color: rgba(114, 96, 85, 0.993);
+    background-color: rgba(99, 45, 20, 0.87);
     padding: 10px 99.5% 10px 10px;
     color: whitesmoke;
     display: flex;
@@ -19,7 +19,7 @@ nav {
     max-width: 200px;
 }
 .nav-bar-wrapper {
-    background-color: rgba(114, 96, 85, 0.5);
+    background-color: rgba(114, 96, 85, 0.3);
     display: flex;
     justify-content: center;
     align-items: left;
@@ -84,9 +84,9 @@ nav {
 .sidebar-menu {
     display: flex;
     flex-direction: column;
-    background-color: rgb(114, 96, 85);
+    background-color: rgba(99, 45, 20, 0.87);
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
-    width: 309px;
+    width: 270px;
 }
 
 .sidebar-menu a {
@@ -95,17 +95,10 @@ nav {
     font-weight: bold;
     display: flex;
     margin: 5px 5px 5px 10px;
+    width: 80px
 }
 
 h3 {
     margin: 5px 0 5px 10px;
     color: whitesmoke;
-}
-a:hover {
-    transform: scale(1.01);
-    font-weight: 900;
-}
-a {
-    transition: transform 0.1s ease-in-out;
-    font-family: "Charm";
 }

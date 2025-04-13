@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import axios from "axios";
+import Footer from "./components/Footer/Footer"
 import NavBar from "./components/NavBar/NavBar";
 import ProductList from "./components/ProductList/ProductList";
 import ProductDetail from "./components/ProductDetails/ProductDetail";
@@ -47,6 +48,7 @@ function App() {
                 <Route path="/login" element={<Login onLogin={fetchBalance} />} />
                 <Route path="/purchases" element={<PurchaseHistory />} />
             </Routes>
+            <Footer />
         </div>
     );
 }
