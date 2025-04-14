@@ -19,6 +19,7 @@ function App() {
 
     useEffect(() => {
         fetchBalance();
+        document.title = 'Bestpresso';
     }, []);
 
     const fetchBalance = async () => {
