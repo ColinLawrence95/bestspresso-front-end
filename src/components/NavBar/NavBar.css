@@ -10,13 +10,13 @@ p {
 }
 nav {
     background-color: rgba(99, 45, 20, 0.87);
-    padding: 10px 99.5% 10px 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
     color: whitesmoke;
     display: flex;
     align-items: center;
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
     width: 100%;
-    max-width: 200px;
 }
 .nav-bar-wrapper {
     background-color: rgba(114, 96, 85, 0.3);
@@ -55,18 +55,20 @@ nav {
     width: 20px;
     cursor: pointer;
     font-family: "Red Hat Display";
+    
 }
 .title {
     color: whitesmoke;
     font-family: "Red Hat Display";
     font-size: 25px;
-    width: 260px;
-    padding-left: 25px;
+    width: 240px;
+    padding-left: 15px;
     margin: 0;
     cursor: pointer;
 }
 #greeting-username{
     font-size: 20px;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.658);
 }
 #balance {
     font-family: "Red Hat Display";
@@ -85,6 +87,7 @@ nav {
     font-size: 30px;
     font-weight: 700;
     font-style: italic;
+    min-width: 200px;
 }
 #team-sign {
     margin-left: 550px;
@@ -94,10 +97,14 @@ nav {
 .sidebar-menu {
     display: flex;
     flex-direction: column;
-    background-color: rgba(99, 45, 20, 0.658);
-    text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
-    width: 270px;
-    border-bottom-right-radius: 8px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(99, 45, 20, 0.6);
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.5);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2);
+    width: 410px;
+
     
 }
 
@@ -106,8 +113,17 @@ nav {
     font-family: "Red Hat Display";
     font-weight: bold;
     display: flex;
-    margin: 5px 5px 5px 10px;
-    width: 80px
+    align-items: center;
+    gap: 12px;
+    margin: 10px;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.658);
+    width: 150px;
+    font-size: 20px;
+
+}
+.sidebar-menu a.active-link {
+    border-left: 4px solid rgb(255, 196, 0);
+    padding-left: 6px;
 }
 
 h3 {
@@ -115,7 +131,7 @@ h3 {
     color: whitesmoke;
     font-family: "Red Hat Display";
 }
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     #flavor-text{
         font-size: 14px;
         width: 200px;
@@ -124,13 +140,22 @@ h3 {
         margin-left: 25px;
     }
     .sidebar-menu a{
-        font-size: 12px;
+        font-size: 14px;
+        margin: 10px;
+        
 
     }
     h3{
         font-size: 12px;
     }
     .sidebar-menu {
-       height: 190px;
+       height: 220px;
+       width: 200px;
+    }
+    #greeting-username{
+        font-size: 12px;
+    }
+    #flavor-text{
+        display: none;
     }
     }

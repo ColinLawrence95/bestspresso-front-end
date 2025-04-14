@@ -170,13 +170,6 @@ function Cart({ onPurchase }) {
                 exit={{ opacity: 0, y: -75, transition: { duration: 0.75 } }}
                 transition={{ duration: 1, delay: 0.75 }}
             >
-                <MotionLink
-                    to="/products"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", bounce: 0.7 }}
-                >
-                    Back to Products
-                </MotionLink>
                 <h2 id="cart-title">My Cart</h2>
             </motion.div>
             {cart.items.length === 0 ? (

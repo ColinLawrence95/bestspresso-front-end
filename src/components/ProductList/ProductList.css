@@ -16,33 +16,59 @@ a {
     flex-direction: column;
     background-color: rgba(114, 96, 85, 0.3);
 }
-input {
-    width: 130px;
-    margin-top: 10px;
-    border: 3px solid rgba(99, 45, 20, 0.87);
-    border-radius: 4px;
+input, select {
+    border: 3px solid rgba(175, 117, 9, 0.87);
+    border-radius: 8px;  
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: #f7f5f3;  
+    color: #3b2a25;  
 }
+
+input:focus, select:focus {
+    border-color: #6a4e3d;  
+    box-shadow: 0 0 5px rgba(106, 78, 61, 0.5); 
+    outline: none;  
+}
+input::placeholder, select:focus {
+    color: #6a4e3d;  /* Placeholder color */
+}
+#search {
+    width: 500px; 
+    margin-top: 10px;
+    margin-right: 75px;
+}
+
+#search:focus {
+    border-color: #6a4e3d;
+    box-shadow: 0 0 5px rgba(106, 78, 61, 0.5); 
+}
+
+
 select {
-    width: 110px;
+    width: 180px;  
     margin-top: 10px;
-    height: 23px;
+    margin-right: 155px;
+    height: 45px;
     cursor: pointer;
-    border: 3px solid rgba(99, 45, 20, 0.87);
-    border-radius: 4px;
 }
+select::-ms-expand {
+    display: none; 
+}
+
 .search-fields {
     display: flex;
-    justify-content: left;
-    gap: 20px;
+    justify-content: space-between;
     align-items: center;
-  
-    padding: 0 0 5px 0px;
-    margin: 0;
+    gap: 20px;
+    padding: 10px 0;
+    margin: 10px 0;
 }
 #product-list-title {
     font-family: "Red Hat Display";
     font-size: 40px;
-    margin: 0 0 0 20px;
+    margin: 0 0 0 160px;
     color: whitesmoke;
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
 }
@@ -115,6 +141,7 @@ select {
 @media (max-width: 768px) {
     #product-list-title{
         font-size: 20px;
+        margin-left: 10px
     }
     .product-list-elements{
         height: 120px;
@@ -132,8 +159,11 @@ select {
     font-size: 9px;
     text-align: left;
 }
-    input, select {
+    input, select, #search {
         width: 110px;
+    }
+    #search {
+        margin: 10px 0 0 0;
     }
     select {
         margin-right: 20px;

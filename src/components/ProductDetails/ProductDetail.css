@@ -41,36 +41,100 @@
 .rating {
     display: flex;
     align-items: center;
-    justify-content: left;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: rgba(255, 248, 240, 0.85);
+    border-radius: 8px;
+    border: 2px solid #3a1f0e;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+    width: fit-content;
 }
-.rating input{
-    width: 35px;
-    height: 30px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    margin-left: 8px;
-    font-size: 20px
+.rating input {
+    width: 60px;
+    padding: 6px 10px;
+    font-size: 18px;
+    border: 2px solid #3a1f0e;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: center;
+    transition: 0.3s ease;
 }
 .rating h4{
     margin: 4px 0 0 0;
-    font-size: 30px;
+    font-size: 40px;
+}
+.rating input:focus {
+    border-color: #ff914d;
+    box-shadow: 0 0 5px rgba(255, 145, 77, 0.5);
+}
+
+.rating button {
+    padding: 6px 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #3a1f0e;
+    background-color: whitesmoke;
+    border: 2px solid #3a1f0e;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rating button:hover {
+    background-color: #ffbe87;
+    transform: translateY(-2px);
 }
 .rating h3{
     margin: 0 10px 0 0;
 }
-.quantity h4{
-    margin: 20px 0 10px 0;
-    font-size: 30px;
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: rgba(255, 248, 240, 0.85);
+    border-radius: 8px;
+    border: 2px solid #3a1f0e;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+    width: fit-content;
 }
-.quantity input{
-    margin: 0 10px 10px 0;
-    width: 50px;
-    font-size: 20px;
+
+.quantity input {
+    width: 60px;
+    padding: 6px 10px;
+    font-size: 18px;
+    border: 2px solid #3a1f0e;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: center;
+    transition: 0.3s ease;
 }
-.products-link {
-    margin-top: 90px;
-  
-    width: 150px;
+
+.quantity input:focus {
+    border-color: #ff914d;
+    box-shadow: 0 0 5px rgba(255, 145, 77, 0.5);
+}
+
+.quantity button {
+    padding: 6px 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #3a1f0e;
+    background-color: #f5f5f5;
+    border: 2px solid #3a1f0e;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.quantity button:hover {
+    background-color: #ffbe87;
+    transform: translateY(-2px);
 }
 .products-link a {
     font-family: "Red Hat Display";
@@ -78,12 +142,7 @@
     border-radius: 8px;
     text-align: left;
 }
-button{
-    font-size: 20px;
-    border-radius: 5px;
-    background-color: whitesmoke;
-    text-shadow: 0px 4px 6px rgba(0, 0, 0, .3);
-}
+
 @media (max-width: 768px)
 {
     .details-product-name {
@@ -93,7 +152,7 @@ button{
         font-size: 14px;
     }
     .details-product-image{
-        height: 200px;
+        height: 260px;
     }
     .details-product-price
     {
@@ -102,32 +161,38 @@ button{
         margin-top: 10px;
     }
     .rating button {
-        font-size: 16px;
+        font-size: 12px;
+        height: 40px;
+        width: 50px;
+        ;
     }
     .rating h4{
-        font-size: 20px;
+        font-size: 30px;
     }
     .rating input{
         font-size: 16px;
-        height: 20px;
+        height: 40px;
+        width: 50px;
     }
+    
     .details-product-stock {
         display: none;
         
     }
     .quantity{
-        margin-top: 44px;
-    }
-    .quantity h4 {
-       display: none;
+        margin-top: 10px;
+        width: 100%;
     }
     .quantity button {
-        font-size: 14px;
+        font-size: 12px;
+        height: 40px;
+        width: 90px;
+
     }
     .quantity input {
-        height: 20px;
+        height: 40px;
         font-size: 16px;
-        width: 35px;
+        width: 50px;
     }
     .products-link a {
      display: none;

@@ -134,7 +134,6 @@ function ProductDetail() {
                 </div>
                 <h4 className="details-product-stock">{product.stock} in Stock</h4>
                 <div className="quantity">
-                    <h4>Quantity </h4>
                     <input
                         type="number"
                         min="1"
@@ -144,13 +143,7 @@ function ProductDetail() {
                     />
                     <button onClick={handleAddToCart}>Add to Cart</button>
                 </div>
-                <motion.div
-                    className="products-link"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 1 }}
-                >
-                    <Link to="/products">Back to Products</Link>
-                </motion.div>
+
             </div>
         </motion.div>
     );

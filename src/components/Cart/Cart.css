@@ -25,6 +25,7 @@
     align-items: left;
     margin: 0;
     background-color: rgba(99, 45, 20, 0.87);
+    border-radius: 12px;
     padding: 5px 0 5px 0;
     
     
@@ -67,8 +68,8 @@
     margin: 0;
 }
 .cart-quantity input {
-    height: 30px;
-    width: 40px;
+    height: 50px;
+    width: 70px;
     text-align: center;
     font-size: 16px;
     margin: 0;
@@ -83,9 +84,16 @@
 
 }
 .cart-quantity-input button {
-    width: 50px;
-    height: 30px;
-    font-size: 11px;
+    width: 100px;
+    height: 50px;
+    font-size: 17px;
+    border-radius: 8px;
+    font-family: "Red Hat Display";
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.cart-quantity-input button:hover {
+    background-color: #ffbe87;
+    transform: translateY(-2px);
 }
 .cart-product-image {
     width: 800px;
@@ -101,25 +109,47 @@
     justify-content: right;
     text-align: center;
 }
-.total-and-purchase{
-    font-size: 50px;
-    text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
+.total-and-purchase {
     display: flex;
-    flex-direction: column;
-    color: whitesmoke;
-    font-weight: bolder;
-    margin: 10px 0 10px 0;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 99%;
+    padding: 20px;
+    margin: 10px 15px 10px 10px;
+    background-color: rgba(255, 255, 255, 0.836);
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+
+    font-family: "Red Hat Display";
+    color: #2b211a;
+    font-weight: 900;
+    font-size: 32px;
 }
-.total-and-purchase p, .total-and-purchase button{
-    margin: 0 0 10px 10px;
-}
+
 .total-and-purchase p {
-    margin: 10px 0 30px 10px;
+    margin: 0;
+    font-size: 36px;
+    color: #4e2d15;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
-.total-and-purchase button{
-    width: 100px;
-    margin-bottom: 150px;
-    margin-left: 10px;
+
+.total-and-purchase button {
+    background-color: #f5f5f5;
+    color: #2b211a;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.total-and-purchase button:hover {
+    background-color: #ffa45b;
+    transform: scale(1.05);
 }
 #cart-empty{
     margin-left: 10px;
@@ -156,13 +186,27 @@
     .cart-quantity label{
         display: none;
     }
+    .cart-quantity button{
+        width: 60px;
+        height: 35px;
+        font-size: 14px;
+    }
     .cart-quantity-input {
         font-size: 14px;
+    }
+    .cart-quantity-input input {
+        width: 60px;
+        height: 35px;
     }
     .cart-remove h6{
         font-size: 14px;
     }
     .cart-name-and-price{
         font-size: 16px;
+    }
+    .total-and-purchase {
+     flex-direction: column;
+     width: 330px;
+     margin-left: 15px;
     }
 }

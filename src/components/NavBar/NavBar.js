@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion } from "motion/react";
+import {
+    FaBars,
+    FaTimes,
+    FaHome,
+    FaCoffee,
+    FaShoppingCart,
+    FaSignOutAlt,
+    FaClock,
+} from "react-icons/fa";
 import "./NavBar.css";
 
 function NavBar({ balance, onLogout }) {
@@ -8,7 +17,7 @@ function NavBar({ balance, onLogout }) {
     const isLoggedIn = !!localStorage.getItem("token");
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [username, setUsername] = useState("");
-
+    const location = useLocation();
     useEffect(() => {
         if (isLoggedIn) {
             const token = localStorage.getItem("token");
@@ -56,13 +65,15 @@ function NavBar({ balance, onLogout }) {
                         whileHover={{ scale: 1.05 }}
                         transition={{ type: "spring", bounce: 0.7 }}
                     >
-                        {isMenuOpen ? "✖ " : "c☰"}
+                        {isMenuOpen ? <FaTimes size="24" /> : <FaBars size="24" />}
                     </motion.h1>
                     <h2 className="title" onClick={() => navigate("/")}>
                         Bestpresso Coffee
                     </h2>
-                    <h4 id="balance"> {typeof balance === "number" ? `🪙${balance.toFixed(2)}` : "🪙"}</h4>
-                   
+                    <h4 id="balance">
+                        {" "}
+                        {typeof balance === "number" ? `🪙${balance.toFixed(2)}` : ""}
+                    </h4>
                 </div>
             </motion.nav>
             <div className="nav-hero">
@@ -79,47 +90,50 @@ function NavBar({ balance, onLogout }) {
                         <>
                             <h3 id="greeting-username">
                                 Welcome {isLoggedIn ? username : "guest"}{" "}
-                               
                             </h3>
 
                             <MotionLink
                                 to="/"
+                                className={location.pathname === "/" ? "active-link" : ""}
                                 onClick={() => setIsMenuOpen(false)}
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ type: "spring", bounce: 0.7 }}
                             >
-                                Home
+                                <FaHome /> Home
                             </MotionLink>
                             <MotionLink
                                 to="/products"
+                                className={location.pathname === "/products" ? "active-link" : ""}
                                 onClick={() => setIsMenuOpen(false)}
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ type: "spring", bounce: 0.7 }}
                             >
-                                Browse
+                                <FaCoffee /> Browse
                             </MotionLink>
                             <MotionLink
                                 to="/cart"
+                                className={location.pathname === "/cart" ? "active-link" : ""}
                                 onClick={() => setIsMenuOpen(false)}
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ type: "spring", bounce: 0.7 }}
                             >
-                                Cart
+                                <FaShoppingCart /> Cart
                             </MotionLink>
                             <MotionLink
                                 to="/purchases"
+                                className={location.pathname === "/purchases" ? "active-link" : ""}
                                 onClick={() => setIsMenuOpen(false)}
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ type: "spring", bounce: 0.7 }}
                             >
-                                Purchases
+                                <FaClock /> History
                             </MotionLink>
                             <MotionLink
                                 onClick={handleLogout}
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ type: "spring", bounce: 0.7 }}
                             >
-                                Logout
+                                <FaSignOutAlt /> Log Out
                             </MotionLink>
                         </>
                     ) : (
