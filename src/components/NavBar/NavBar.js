@@ -18,6 +18,7 @@ function NavBar({ balance, onLogout }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [username, setUsername] = useState("");
     const location = useLocation();
+    const MotionLink = motion.create(Link);
     useEffect(() => {
         if (isLoggedIn) {
             const token = localStorage.getItem("token");
@@ -43,7 +44,7 @@ function NavBar({ balance, onLogout }) {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    const MotionLink = motion.create(Link);
+
 
     return (
         <motion.div

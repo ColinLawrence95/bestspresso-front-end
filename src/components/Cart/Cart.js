@@ -144,7 +144,6 @@ function Cart({ onPurchase }) {
         }
         handleUpdateQuantity(itemId, newQuantity);
     };
-    const MotionLink = motion.create(Link);
     if (error)
         return (
             <div>
