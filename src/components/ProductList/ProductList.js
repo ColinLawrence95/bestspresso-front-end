@@ -10,6 +10,8 @@ function ProductList() {
     const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState("");
     const [sortOption, setSortOption] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 9;
 
     useEffect(() => {
         document.title = "Browse - Bestpresso";
@@ -43,8 +45,11 @@ function ProductList() {
         }
     });
 
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedProducts = sortedProducts.slice(startIndex, endIndex);
+
     if (error) return <div>{error}</div>;
-    console.log(products);
     return (
         <div className="products-page-container">
             <motion.div
@@ -72,6 +77,7 @@ function ProductList() {
                     <option value="highR">Best Rated</option>
                 </motion.select>
             </motion.div>
+
             <motion.div
                 className="product-list"
                 initial={{ opacity: 0, x: -75 }}
@@ -79,8 +85,8 @@ function ProductList() {
                 exit={{ opacity: 0, x: -75, transition: { duration: 0.75 } }}
                 transition={{ duration: 1, delay: 0.75 }}
             >
-                {sortedProducts.length > 0 ? (
-                    sortedProducts.map((product) => (
+                {paginatedProducts.length > 0 ? (
+                    paginatedProducts.map((product) => (
                         <motion.div
                             className="product-list-elements"
                             key={product.id}
@@ -114,6 +120,18 @@ function ProductList() {
                     <h1 id="products-no-match">No products match your search.</h1>
                 )}
             </motion.div>
+
+            <div className="pagination">
+                {Array.from({ length: Math.ceil(sortedProducts.length / itemsPerPage) }, (_, index) => (
+                    <button
+                        key={index + 1}
+                        className={currentPage === index + 1 ? "active-page" : ""}
+                        onClick={() => setCurrentPage(index + 1)}
+                    >
+                        {index + 1}
+                    </button>
+                ))}
+            </div>
         </div>
     );
 }

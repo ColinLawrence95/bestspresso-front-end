@@ -138,6 +138,33 @@ select::-ms-expand {
     color: whitesmoke;
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
 }
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 8px;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    background-color: rgba(99, 45, 20, 0.87);
+    color: whitesmoke;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+}
+
+.pagination .active-page {
+    background-color: #ffbe87;
+    color: black;
+}
 @media (max-width: 768px) {
     #product-list-title{
         font-size: 20px;

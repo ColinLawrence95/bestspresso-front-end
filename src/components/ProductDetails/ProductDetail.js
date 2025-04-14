@@ -5,6 +5,7 @@ import "./ProductDetail.css";
 import { FaStar } from "react-icons/fa";
 import { motion } from "motion/react";
 import { toast } from "react-toastify";
+import { FaCoffee } from "react-icons/fa";
 
 function ProductDetail() {
     const { id } = useParams();
@@ -83,7 +84,6 @@ function ProductDetail() {
                 setError(null);
                 fetchProduct();
                 toast.success("Rating updated successfully!");
-
             })
             .catch((err) => {
                 setError(
@@ -134,6 +134,7 @@ function ProductDetail() {
                 </div>
                 <h4 className="details-product-stock">{product.stock} in Stock</h4>
                 <div className="quantity">
+                    <FaCoffee color="black" size="37"/>
                     <input
                         type="number"
                         min="1"
@@ -141,9 +142,8 @@ function ProductDetail() {
                         value={quantity}
                         onChange={(e) => setQuantity(Number(e.target.value))}
                     />
-                    <button onClick={handleAddToCart}>Add to Cart</button>
+                    <button onClick={handleAddToCart}>Add</button>
                 </div>
-
             </div>
         </motion.div>
     );
