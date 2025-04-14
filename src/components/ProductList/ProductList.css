@@ -198,4 +198,8 @@ select::-ms-expand {
     #products-no-match {
         font-size: 20px;
     }
+    .pagination button {
+        padding: 6px;
+    font-size: 9px;
+    }
 }

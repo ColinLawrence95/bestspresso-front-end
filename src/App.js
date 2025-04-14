@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Route,
+    Routes,
+    useLocation
+} from "react-router-dom";
 import axios from "axios";
 import Footer from "./components/Footer/Footer";
 import NavBar from "./components/NavBar/NavBar";
@@ -11,19 +16,29 @@ import Login from "./components/Login/Login";
 import LandingPage from "./components/LandingPage/LandingPage";
 import SignUp from "./components/SignUp/SignUp.js";
 import { AnimatePresence } from "motion/react";
-import { ToastContainer } from "react-toastify"; // ✅ Add this
-import "react-toastify/dist/ReactToastify.css";  // ✅ Include the CSS
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 
 function App() {
     const [balance, setBalance] = useState(null);
     const location = useLocation();
+    const [hasRendered, setHasRendered] = useState(false); // ✅ new flag
 
     useEffect(() => {
-        fetchBalance();
         document.title = 'Bestpresso';
+        fetchBalance();
     }, []);
+
+    useEffect(() => {
+        // Wait for at least a render cycle before showing the footer
+        const timeout = setTimeout(() => {
+            setHasRendered(true);
+        }, 300); // you can tweak this to match animation timing
+
+        return () => clearTimeout(timeout);
+    }, [location.pathname]); // re-trigger on route change if needed
 
     const fetchBalance = async () => {
         const token = localStorage.getItem("token");
@@ -60,10 +75,9 @@ function App() {
                 </AnimatePresence>
             </main>
 
-            
             <ToastContainer position="top-right" autoClose={3000} />
 
-            <Footer />
+            {hasRendered && <Footer />}
         </div>
     );
 }

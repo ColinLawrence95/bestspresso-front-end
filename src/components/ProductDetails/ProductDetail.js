@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./ProductDetail.css";
 import { FaStar } from "react-icons/fa";
 import { motion } from "motion/react";
@@ -103,7 +103,7 @@ function ProductDetail() {
             initial={{ opacity: 0, x: -75 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -75, transition: { duration: 0.75 } }}
-            transition={{ duration: 1, delay: 0.75 }}
+            transition={{ duration: 1, delay: .5 }}
         >
             <div
                 className="details-product-image"

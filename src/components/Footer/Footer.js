@@ -10,7 +10,7 @@ function Footer() {
             className="footer"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            eexit={{ opacity: 0, y: -40, transition: { duration: 0.75 } }}
+            exit={{ opacity: 0, y: -40, transition: { duration: 0.75 } }}
             transition={{ duration: 1, delay: 4 }}
         >
             <div className="footer-container">
