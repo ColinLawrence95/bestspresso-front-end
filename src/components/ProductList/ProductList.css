@@ -19,12 +19,16 @@ a {
 input {
     width: 130px;
     margin-top: 10px;
+    border: 3px solid rgba(99, 45, 20, 0.87);
+    border-radius: 4px;
 }
 select {
     width: 110px;
-    margin-top: 9px;
-    height: 21px;
+    margin-top: 10px;
+    height: 23px;
     cursor: pointer;
+    border: 3px solid rgba(99, 45, 20, 0.87);
+    border-radius: 4px;
 }
 .search-fields {
     display: flex;
@@ -71,7 +75,7 @@ select {
 
 .product-image {
     width: 100%;
-    height: 224px;
+    height: 220px;
     background-size: cover;
     background-position: center;
     border-top-left-radius: 8px;
@@ -85,7 +89,7 @@ select {
     margin: 0;
 }
 #product-name {
-    font-size: 35px;
+    font-size: 33px;
     font-weight: 900;
 }
 #product-price {
@@ -107,4 +111,34 @@ select {
     font-family: "Red Hat Display";
     color: whitesmoke;
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
+}
+@media (max-width: 768px) {
+    #product-list-title{
+        font-size: 20px;
+    }
+    .product-list-elements{
+        height: 120px;
+        width: 164px;
+
+    }
+    .product-image{
+        height: 93px;
+       
+    }
+    #product-name,
+    #product-price,
+    #product-rating {
+      
+    font-size: 9px;
+    text-align: left;
+}
+    input, select {
+        width: 110px;
+    }
+    select {
+        margin-right: 20px;
+    }
+    #products-no-match {
+        font-size: 20px;
+    }
 }

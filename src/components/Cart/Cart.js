@@ -12,6 +12,7 @@ function Cart({ onPurchase }) {
 
     useEffect(() => {
         fetchCart();
+          document.title = "My Cart - Bestpresso";
     }, []);
 
     const fetchCart = () => {

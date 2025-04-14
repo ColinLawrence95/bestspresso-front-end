@@ -12,6 +12,7 @@ function ProductList() {
     const [sortOption, setSortOption] = useState("");
 
     useEffect(() => {
+        document.title = "Browse - Bestpresso";
         axios
             .get(`${process.env.REACT_APP_API_URL}/products`)
             .then((response) => {

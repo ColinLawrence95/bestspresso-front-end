@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import "./ProductDetail.css";
 import { FaStar } from "react-icons/fa";
 import { motion } from "motion/react";
+import { toast } from "react-toastify";
 
 function ProductDetail() {
     const { id } = useParams();
@@ -18,6 +19,7 @@ function ProductDetail() {
             .then((response) => {
                 setProduct(response.data);
                 setNewRating(response.data.rating.toString());
+                document.title = `${response.data.name} - Bestpresso`;
             })
             .catch((err) => {
                 setError("Failed to load product details");
@@ -42,7 +44,7 @@ function ProductDetail() {
                 headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
             })
             .then(() => {
-                alert(`${quantity} ${product.name}(s) added to cart!`);
+                toast.success(`${quantity} ${product.name}(s) added to cart!`);
             })
             .catch((err) => {
                 setError(
@@ -80,7 +82,8 @@ function ProductDetail() {
             .then(() => {
                 setError(null);
                 fetchProduct();
-                alert("Rating updated successfully!");
+                toast.success("Rating updated successfully!");
+
             })
             .catch((err) => {
                 setError(

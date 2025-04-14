@@ -11,6 +11,7 @@ function PurchaseHistory() {
 
     useEffect(() => {
         fetchPurchases();
+        document.title = "History - Bestpresso";
     }, []);
 
     const fetchPurchases = async () => {

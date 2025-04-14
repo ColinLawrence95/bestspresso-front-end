@@ -60,9 +60,18 @@ nav {
     color: whitesmoke;
     font-family: "Red Hat Display";
     font-size: 25px;
-    width: 400px;
+    width: 260px;
     padding-left: 25px;
     margin: 0;
+    cursor: pointer;
+}
+#greeting-username{
+    font-size: 20px;
+}
+#balance {
+    font-family: "Red Hat Display";
+    margin: 0;
+    width: 100px;
 }
 .nav-hero {
     display: flex;
@@ -85,9 +94,11 @@ nav {
 .sidebar-menu {
     display: flex;
     flex-direction: column;
-    background-color: rgba(99, 45, 20, 0.87);
+    background-color: rgba(99, 45, 20, 0.658);
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
     width: 270px;
+    border-bottom-right-radius: 8px;
+    
 }
 
 .sidebar-menu a {
@@ -102,4 +113,24 @@ nav {
 h3 {
     margin: 5px 0 5px 10px;
     color: whitesmoke;
+    font-family: "Red Hat Display";
 }
+@media (max-width: 768px) {
+    #flavor-text{
+        font-size: 14px;
+        width: 200px;
+        text-align: right;
+        margin-bottom: 30px;
+        margin-left: 25px;
+    }
+    .sidebar-menu a{
+        font-size: 12px;
+
+    }
+    h3{
+        font-size: 12px;
+    }
+    .sidebar-menu {
+       height: 190px;
+    }
+    }

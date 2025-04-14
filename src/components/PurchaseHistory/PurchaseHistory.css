@@ -2,13 +2,14 @@
     background-color: rgba(114, 96, 85, 0.3);
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: center;
 }
 #history-title{
     font-size: 70px;
     margin: 0 0 0 10px;
     color: whitesmoke;
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
+    font-family: "Red-Hat-Display";
 }
 .history-wrapper{
     background-color: rgba(99, 45, 20, 0.87);
@@ -61,4 +62,26 @@
     font-family: "Red Hat Display";
     margin-left: 10px;
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
+}
+@media (max-width: 768px) {
+    #history-title{
+        font-size: 20px;
+        font-family: "Red Hat Display";
+        margin-top: 20px;
+    }
+    #history-products-link{
+        font-size: 16px;
+    }
+    .history-page-container{
+        align-items: center;
+    }
+    .history-wrapper{
+        width: 350px;
+    }
+    .history-element-top-row{
+        font-size: 13px;
+    }
+    .history-items{
+        font-size: 13px;
+    }
 }

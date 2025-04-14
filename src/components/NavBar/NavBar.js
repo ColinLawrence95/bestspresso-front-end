@@ -41,13 +41,13 @@ function NavBar({ balance, onLogout }) {
             className="nav-bar-wrapper"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: .3 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
         >
             <motion.nav
                 className="nav-bar-container"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: .4 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
             >
                 <div className="nav-bar-header">
                     <motion.h1
@@ -58,7 +58,11 @@ function NavBar({ balance, onLogout }) {
                     >
                         {isMenuOpen ? "✖ " : "c☰"}
                     </motion.h1>
-                    <h2 className="title">Bestpresso Coffee</h2>
+                    <h2 className="title" onClick={() => navigate("/")}>
+                        Bestpresso Coffee
+                    </h2>
+                    <h4 id="balance"> {typeof balance === "number" ? `🪙${balance.toFixed(2)}` : "🪙"}</h4>
+                   
                 </div>
             </motion.nav>
             <div className="nav-hero">
@@ -73,15 +77,15 @@ function NavBar({ balance, onLogout }) {
                 >
                     {isLoggedIn ? (
                         <>
-                            <h3>
+                            <h3 id="greeting-username">
                                 Welcome {isLoggedIn ? username : "guest"}{" "}
-                                {typeof balance === "number" ? `🪙${balance.toFixed(2)}` : "🪙"}
+                               
                             </h3>
 
                             <MotionLink
                                 to="/"
                                 onClick={() => setIsMenuOpen(false)}
-                                whileHover={{ scale: 1.01 }}
+                                whileHover={{ scale: 1.05 }}
                                 transition={{ type: "spring", bounce: 0.7 }}
                             >
                                 Home
@@ -89,7 +93,7 @@ function NavBar({ balance, onLogout }) {
                             <MotionLink
                                 to="/products"
                                 onClick={() => setIsMenuOpen(false)}
-                                whileHover={{ scale: 1.01 }}
+                                whileHover={{ scale: 1.05 }}
                                 transition={{ type: "spring", bounce: 0.7 }}
                             >
                                 Browse
@@ -97,7 +101,7 @@ function NavBar({ balance, onLogout }) {
                             <MotionLink
                                 to="/cart"
                                 onClick={() => setIsMenuOpen(false)}
-                                whileHover={{ scale: 1.01 }}
+                                whileHover={{ scale: 1.05 }}
                                 transition={{ type: "spring", bounce: 0.7 }}
                             >
                                 Cart
@@ -105,14 +109,14 @@ function NavBar({ balance, onLogout }) {
                             <MotionLink
                                 to="/purchases"
                                 onClick={() => setIsMenuOpen(false)}
-                                whileHover={{ scale: 1.01 }}
+                                whileHover={{ scale: 1.05 }}
                                 transition={{ type: "spring", bounce: 0.7 }}
                             >
                                 Purchases
                             </MotionLink>
                             <MotionLink
                                 onClick={handleLogout}
-                                whileHover={{ scale: 1.01 }}
+                                whileHover={{ scale: 1.05 }}
                                 transition={{ type: "spring", bounce: 0.7 }}
                             >
                                 Logout
@@ -132,7 +136,6 @@ function NavBar({ balance, onLogout }) {
                             <MotionLink to="/signup" onClick={() => setIsMenuOpen(false)}>
                                 Sign Up
                             </MotionLink>
-                            
                         </>
                     )}
                 </motion.div>
