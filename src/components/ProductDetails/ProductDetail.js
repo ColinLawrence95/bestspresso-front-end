@@ -4,29 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import "./ProductDetail.css";
 import { FaStar } from "react-icons/fa";
 import { motion } from "motion/react";
-import coffee1 from "../../images/coffee/coffee1.jpg";
-import coffee2 from "../../images/coffee/coffee2.jpg";
-import coffee3 from "../../images/coffee/coffee3.jpg";
-import coffee4 from "../../images/coffee/coffee4.jpg";
-import coffee5 from "../../images/coffee/coffee5.jpg";
-import coffee6 from "../../images/coffee/coffee6.jpg";
-import coffee7 from "../../images/coffee/coffee7.jpg";
-import coffee8 from "../../images/coffee/coffee8.jpg";
-import coffee9 from "../../images/coffee/coffee9.jpg";
-import coffee10 from "../../images/coffee/coffee10.jpg";
 
-const coffeeImages = [
-    coffee1,
-    coffee2,
-    coffee3,
-    coffee4,
-    coffee5,
-    coffee6,
-    coffee7,
-    coffee8,
-    coffee9,
-    coffee10,
-];
 function ProductDetail() {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
@@ -113,11 +91,6 @@ function ProductDetail() {
             });
     };
 
-    const getRandomCoffeeImage = () => {
-        const randomIndex = Math.floor(Math.random() * coffeeImages.length);
-        return coffeeImages[randomIndex];
-    };
-
     if (error) return <div>{error}</div>;
     if (!product) return <div></div>;
 
@@ -131,8 +104,12 @@ function ProductDetail() {
         >
             <div
                 className="details-product-image"
-                style={{ backgroundImage: `url("${getRandomCoffeeImage()}")` }}
-            ></div>
+                style={{
+                    backgroundImage: `url(${process.env.REACT_APP_API_URL}${product.photo_url})`,
+                }}
+                role="img"
+                aria-label={product.name}
+            />
             <div>
                 <h2 className="details-product-name">{product.name}</h2>
                 <h2 className="details-product-desc">{product.description}.</h2>

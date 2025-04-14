@@ -113,8 +113,13 @@
 .total-and-purchase p, .total-and-purchase button{
     margin: 0 0 10px 10px;
 }
+.total-and-purchase p {
+    margin: 10px 0 30px 10px;
+}
 .total-and-purchase button{
-    width: 100px
+    width: 100px;
+    margin-bottom: 150px;
+    margin-left: 10px;
 }
 #cart-empty{
     margin-left: 10px;

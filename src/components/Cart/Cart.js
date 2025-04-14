@@ -3,35 +3,12 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../Cart/Cart.css";
 import { motion } from "motion/react";
-import coffee1 from "../../images/coffee/coffee1.jpg";
-import coffee2 from "../../images/coffee/coffee2.jpg";
-import coffee3 from "../../images/coffee/coffee3.jpg";
-import coffee4 from "../../images/coffee/coffee4.jpg";
-import coffee5 from "../../images/coffee/coffee5.jpg";
-import coffee6 from "../../images/coffee/coffee6.jpg";
-import coffee7 from "../../images/coffee/coffee7.jpg";
-import coffee8 from "../../images/coffee/coffee8.jpg";
-import coffee9 from "../../images/coffee/coffee9.jpg";
-import coffee10 from "../../images/coffee/coffee10.jpg";
-
-const coffeeImages = [
-    coffee1,
-    coffee2,
-    coffee3,
-    coffee4,
-    coffee5,
-    coffee6,
-    coffee7,
-    coffee8,
-    coffee9,
-    coffee10,
-];
 
 function Cart({ onPurchase }) {
     const [cart, setCart] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [tempQuantities, setTempQuantities] = useState({}); 
+    const [tempQuantities, setTempQuantities] = useState({});
 
     useEffect(() => {
         fetchCart();
@@ -51,7 +28,7 @@ function Cart({ onPurchase }) {
             })
             .then((response) => {
                 setCart(response.data);
-              
+
                 const initialQuantities = {};
                 response.data.items.forEach((item) => {
                     initialQuantities[item.id] = item.quantity.toString();
@@ -157,11 +134,6 @@ function Cart({ onPurchase }) {
             })
             .finally(() => setLoading(false));
     };
-    
-    const getRandomCoffeeImage = () => {
-        const randomIndex = Math.floor(Math.random() * coffeeImages.length);
-        return coffeeImages[randomIndex];
-    };
 
     const handleQuantitySubmit = (itemId, stock) => {
         const newQuantity = Number(tempQuantities[itemId]);
@@ -181,21 +153,21 @@ function Cart({ onPurchase }) {
         );
     if (loading) return <div></div>;
     if (!cart) return <div></div>;
- 
+
     return (
         <motion.div
             className="page-container"
             initial={{ opacity: 0, x: -75 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -75, transition: { duration: .75 } }}
+            exit={{ opacity: 0, x: -75, transition: { duration: 0.75 } }}
             transition={{ duration: 1, delay: 0.75 }}
         >
-            <motion.div className="cart-title-and-link-container"
-            initial={{ opacity: 0, y: -75 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -75, transition: { duration: .75 } }}
+            <motion.div
+                className="cart-title-and-link-container"
+                initial={{ opacity: 0, y: -75 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -75, transition: { duration: 0.75 } }}
                 transition={{ duration: 1, delay: 0.75 }}
-            
             >
                 <MotionLink
                     to="/products"
@@ -206,78 +178,78 @@ function Cart({ onPurchase }) {
                 </MotionLink>
                 <h2 id="cart-title">My Cart</h2>
             </motion.div>
-      {cart.items.length === 0 ? (
-                    <p id="cart-empty">Your cart is empty</p>
-                ) : (
-              
-                    <div className="cart-container">
-                        
-                        {cart.items.map((item) => (
-                            <div id="cart-wrapper" key={item.id}>
-                                <br />
-                                <div className="cart-details">
-                                    <div
-                                        className="cart-product-image"
-                                        style={{
-                                            backgroundImage: `url("${getRandomCoffeeImage()}")`,
-                                        }}
-                                    ></div>
-                                    <div className="cart-name-and-price">
-                                        <h1 id="cart-product-name">{item.name}</h1>$
-                                        {item.subtotal.toFixed(2)}
+            {cart.items.length === 0 ? (
+                <p id="cart-empty">Your cart is empty</p>
+            ) : (
+                <div className="cart-container">
+                    {cart.items.map((item) => (
+                        <div id="cart-wrapper" key={item.id}>
+                            <br />
+                            <div className="cart-details">
+                                <div
+                                    className="cart-product-image"
+                                    style={{
+                                        backgroundImage: `url(${process.env.REACT_APP_API_URL}${item.photo_url})`,
+                                    }}
+                                    role="img"
+                                    aria-label={item.name}
+                                />
+
+                                <div className="cart-name-and-price">
+                                    <h1 id="cart-product-name">{item.name}</h1>$
+                                    {item.subtotal.toFixed(2)}
+                                </div>
+                                <div className="cart-quantity">
+                                    <div className="cart-quantity-input">
+                                        <label>Amount</label>
+                                        <input
+                                            type="number"
+                                            min="1"
+                                            max={item.stock}
+                                            value={tempQuantities[item.id] || item.quantity}
+                                            onChange={(e) =>
+                                                setTempQuantities({
+                                                    ...tempQuantities,
+                                                    [item.id]: e.target.value,
+                                                })
+                                            }
+                                        />
+                                        <motion.button
+                                            onClick={() =>
+                                                handleQuantitySubmit(item.id, item.stock)
+                                            }
+                                            whileHover={{ scale: 1.05 }}
+                                            transition={{ type: "spring", bounce: 0.7 }}
+                                        >
+                                            Update
+                                        </motion.button>
                                     </div>
-                                    <div className="cart-quantity">
-                                        <div className="cart-quantity-input">
-                                            <label>Amount</label>
-                                            <input
-                                                type="number"
-                                                min="1"
-                                                max={item.stock}
-                                                value={tempQuantities[item.id] || item.quantity}
-                                                onChange={(e) =>
-                                                    setTempQuantities({
-                                                        ...tempQuantities,
-                                                        [item.id]: e.target.value,
-                                                    })
-                                                }
-                                            />
-                                            <motion.button
-                                                onClick={() =>
-                                                    handleQuantitySubmit(item.id, item.stock)
-                                                }
-                                                whileHover={{ scale: 1.05 }}
-                                                transition={{ type: "spring", bounce: 0.7 }}
-                                            >
-                                                Update
-                                            </motion.button>
-                                        </div>
-                                        <div className="cart-remove">
-                                            <motion.h6
-                                                onClick={() => handleRemoveItem(item.id)}
-                                                whileHover={{ scale: 1.01 }}
-                                                transition={{ type: "spring", bounce: 0.7 }}
-                                            >
-                                                Remove
-                                            </motion.h6>
-                                        </div>
+                                    <div className="cart-remove">
+                                        <motion.h6
+                                            onClick={() => handleRemoveItem(item.id)}
+                                            whileHover={{ scale: 1.01 }}
+                                            transition={{ type: "spring", bounce: 0.7 }}
+                                        >
+                                            Remove
+                                        </motion.h6>
                                     </div>
                                 </div>
                             </div>
-                        ))}
-                    </div>
-                )}
-                <div className="total-and-purchase">
-                    <p>Total: ${cart.total.toFixed(2)}</p>
-                    <motion.button
-                        onClick={handlePurchase}
-                        disabled={cart.total === 0}
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ type: "spring", bounce: 0.7 }}
-                    >
-                        Purchase
-                    </motion.button>
+                        </div>
+                    ))}
                 </div>
-          
+            )}
+            <div className="total-and-purchase">
+                <p>Total: ${cart.total.toFixed(2)}</p>
+                <motion.button
+                    onClick={handlePurchase}
+                    disabled={cart.total === 0}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", bounce: 0.7 }}
+                >
+                    Purchase
+                </motion.button>
+            </div>
         </motion.div>
     );
 }

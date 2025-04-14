@@ -4,29 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./ProductList.css";
 import { motion } from "motion/react";
-import coffee1 from "../../images/coffee/coffee1.jpg";
-import coffee2 from "../../images/coffee/coffee2.jpg";
-import coffee3 from "../../images/coffee/coffee3.jpg";
-import coffee4 from "../../images/coffee/coffee4.jpg";
-import coffee5 from "../../images/coffee/coffee5.jpg";
-import coffee6 from "../../images/coffee/coffee6.jpg";
-import coffee7 from "../../images/coffee/coffee7.jpg";
-import coffee8 from "../../images/coffee/coffee8.jpg";
-import coffee9 from "../../images/coffee/coffee9.jpg";
-import coffee10 from "../../images/coffee/coffee10.jpg";
 
-const coffeeImages = [
-    coffee1,
-    coffee2,
-    coffee3,
-    coffee4,
-    coffee5,
-    coffee6,
-    coffee7,
-    coffee8,
-    coffee9,
-    coffee10,
-];
 function ProductList() {
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(null);
@@ -64,20 +42,15 @@ function ProductList() {
         }
     });
 
-    const getRandomCoffeeImage = () => {
-        const randomIndex = Math.floor(Math.random() * coffeeImages.length);
-        return coffeeImages[randomIndex];
-    };
-
     if (error) return <div>{error}</div>;
-
+    console.log(products);
     return (
         <div className="products-page-container">
             <motion.div
                 className="search-fields"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20, transition: { duration: .75 } }}
+                exit={{ opacity: 0, y: -20, transition: { duration: 0.75 } }}
                 transition={{ duration: 1, delay: 0.75 }}
             >
                 <h4 id="product-list-title">Our Products</h4>
@@ -88,14 +61,9 @@ function ProductList() {
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         placeholder="Search by Name"
-                    
                     />
                 </div>
-                <motion.select
-                    value={sortOption}
-                    onChange={(e) => setSortOption(e.target.value)}
-              
-                >
+                <motion.select value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
                     <option value="">Sort By</option>
                     <option value="name">Name (A-Z)</option>
                     <option value="highP">Highest Price</option>
@@ -107,7 +75,7 @@ function ProductList() {
                 className="product-list"
                 initial={{ opacity: 0, x: -75 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -75, transition: { duration: .75 } }}
+                exit={{ opacity: 0, x: -75, transition: { duration: 0.75 } }}
                 transition={{ duration: 1, delay: 0.75 }}
             >
                 {sortedProducts.length > 0 ? (
@@ -119,21 +87,24 @@ function ProductList() {
                             transition={{ type: "spring", bounce: 0.7 }}
                         >
                             <Link to={`/products/${product.id}`}>
-                            <div
-                                className="product-image"
-                                style={{ backgroundImage: `url("${getRandomCoffeeImage()}")` }}
-                            ></div>
-                           
+                                <div
+                                    className="product-image"
+                                    style={{
+                                        backgroundImage: `url(${process.env.REACT_APP_API_URL}${product.photo_url})`,
+                                    }}
+                                    role="img"
+                                    aria-label={product.name}
+                                />
+
                                 <div className="product-list-element">
                                     <div id="top-tile-row">
-                                    <h3 id="product-name">{product.name}</h3>
-                                    <h5 id="product-rating">
-                                        <FaStar color="orange" style={{ marginRight: "4px" }} />
-                                        {product.rating}
-                                    </h5>
+                                        <h3 id="product-name">{product.name}</h3>
+                                        <h5 id="product-rating">
+                                            <FaStar color="orange" style={{ marginRight: "4px" }} />
+                                            {product.rating}
+                                        </h5>
                                     </div>
                                     <h4 id="product-price">${product.price.toFixed(2)}</h4>
-                                    
                                 </div>
                             </Link>
                         </motion.div>
