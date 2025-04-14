@@ -168,20 +168,22 @@
         
     }
     .cart-details{
-        width: 330px;
+        justify-content: left;
     }
     .cart-title-and-link-container a{
        display: none;
     }
     #cart-product-name {
         font-size: 14px;
+       
     }
     .cart-product-image {
         height: 75px;
-        width: 200px;
+        width: 100px;
+        
     }
     .cart-quantity {
-        width: 50px;
+        width: 160px;
     }
     .cart-quantity label{
         display: none;
@@ -203,6 +205,9 @@
     }
     .cart-name-and-price{
         font-size: 16px;
+        margin: 0;
+        max-width: 50px;
+       
     }
     .total-and-purchase {
      flex-direction: column;
