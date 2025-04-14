@@ -1,0 +1,147 @@
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgba(114, 96, 85, 0.185);
+    font-family: "Red Hat Display";
+  }
+  
+  .hero {
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+
+  }
+  
+  .hero h1 {
+    font-size: 70px;
+    margin: 0 0 10px 0;
+    color: whitesmoke;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
+   
+  }
+  
+  .hero p {
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
+    font-weight: bolder;
+    font-family: "Charm";
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #5c3c13;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.2s;
+  }
+  
+  .cta-button:hover {
+    background-color: #e67e22; /* Darker gold */
+  }
+  
+  .cta-button.secondary {
+    background-color: #2c2c2c; /* Dark accent */
+  }
+  
+  .cta-button.secondary:hover {
+    background-color: #444;
+  }
+  
+  .featured {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .featured h2 {
+    font-size: 32px;
+    color: #2c2c2c;
+    margin-bottom: 30px;
+  }
+  
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .featured-item {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .featured-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  
+  .featured-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .featured-item h3 {
+    font-size: 20px;
+    margin: 15px;
+    color: #2c2c2c;
+  }
+  
+  .featured-item p {
+    font-size: 16px;
+    margin: 0 15px 15px;
+    color: #666;
+  }
+  
+  .about {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+  }
+  
+  .about h2 {
+    font-size: 32px;
+    color: #2c2c2c;
+    margin-bottom: 20px;
+  }
+  
+  .about p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: #666;
+  }
+  
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 36px;
+    }
+  
+    .hero p {
+      font-size: 18px;
+    }
+  
+    .cta-button {
+      padding: 12px 25px;
+      font-size: 16px;
+    }
+  
+    .featured h2,
+    .about h2 {
+      font-size: 28px;
+    }
+  
+    .featured-grid {
+      grid-template-columns: 1fr;
+    }
+  }

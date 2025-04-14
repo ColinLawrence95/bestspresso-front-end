@@ -31,7 +31,7 @@ function Cart({ onPurchase }) {
     const [cart, setCart] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [tempQuantities, setTempQuantities] = useState({}); // Track temp quantity per item
+    const [tempQuantities, setTempQuantities] = useState({}); 
 
     useEffect(() => {
         fetchCart();
@@ -51,7 +51,7 @@ function Cart({ onPurchase }) {
             })
             .then((response) => {
                 setCart(response.data);
-                // Initialize tempQuantities with current quantities
+              
                 const initialQuantities = {};
                 response.data.items.forEach((item) => {
                     initialQuantities[item.id] = item.quantity.toString();
@@ -185,11 +185,18 @@ function Cart({ onPurchase }) {
     return (
         <motion.div
             className="page-container"
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -75 }}
             animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -75, transition: { duration: .75 } }}
             transition={{ duration: 1, delay: 0.75 }}
         >
-            <div className="cart-title-and-link-container">
+            <motion.div className="cart-title-and-link-container"
+            initial={{ opacity: 0, y: -75 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -75, transition: { duration: .75 } }}
+                transition={{ duration: 1, delay: 0.75 }}
+            
+            >
                 <MotionLink
                     to="/products"
                     whileHover={{ scale: 1.1 }}
@@ -198,7 +205,7 @@ function Cart({ onPurchase }) {
                     Back to Products
                 </MotionLink>
                 <h2 id="cart-title">My Cart</h2>
-            </div>
+            </motion.div>
       {cart.items.length === 0 ? (
                     <p id="cart-empty">Your cart is empty</p>
                 ) : (

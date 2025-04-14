@@ -1,39 +1,38 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import "./SignUp.css";
 import { motion } from "motion/react";
 
-function Login({ onLogin }) {
+function SignUp({ onSignUp }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    const handleLogin = async (e) => {
+    const handleSignUp = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/sign-in`, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/sign-up`, {
                 username,
                 password,
             });
-            console.log("Login Response:", response.data);
             const token = response.data.token;
             if (!token) {
                 setError("No token received from server");
                 return;
             }
             localStorage.setItem("token", token);
-            console.log("Stored Token:", localStorage.getItem("token"));
             navigate("/");
-            if (onLogin) onLogin();
+            if (onSignUp) onSignUp();
         } catch (err) {
-            setError("Login failed - check your username or password");
-            console.error("Login Error:", err.response ? err.response.data : err.message);
+            setError("Sign Up failed - check your username or password");
+            console.error("Sign Up Error:", err.response ? err.response.data : err.message);
         }
     };
     const MotionLink = motion.create(Link);
     return (
-        <motion.div className="sign-page-wrapper">
+        <div className="sign-page-wrapper">
             <motion.div
                 className="sign-elements"
                 initial={{ opacity: 0, y: -40 }}
@@ -41,10 +40,10 @@ function Login({ onLogin }) {
                 exit={{ opacity: 0, y: -40, transition: { duration: .75 } }}
                 transition={{ duration: 1, delay: 0.75 }}
             >
-                <h2>Log In</h2>
+                <h2>Sign Up</h2>
                 {error && <p>{error}</p>}
                 <div className="sign-inputs">
-                    <form onSubmit={handleLogin}>
+                    <form onSubmit={handleSignUp}>
                         <div>
                             <input
                                 type="text"
@@ -63,20 +62,20 @@ function Login({ onLogin }) {
                                 placeholder="Password"
                             />
                         </div>
-                        <button type="submit">Log in</button>
+                        <button type="submit">Sign Up</button>
                     </form>
                 </div>
-                <p>Don't have an account?</p>
+                <p>Have an account?</p>
                 <MotionLink
-                    to="/signup"
+                    to="/login"
                     whileHover={{ scale: 1.1 }}
                     transition={{ type: "spring", bounce: 0.7 }}
                 >
-                    Sign Up
+                    Log In
                 </MotionLink>
             </motion.div>
-        </motion.div>
+        </div>
     );
 }
 
-export default Login;
+export default SignUp;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { motion } from "motion/react"; // Adjust if using framer-motion
+import { motion } from "motion/react";
 import "./NavBar.css";
 
 function NavBar({ balance, onLogout }) {
@@ -41,13 +41,13 @@ function NavBar({ balance, onLogout }) {
             className="nav-bar-wrapper"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 1 }}
+            transition={{ duration: 0.5, delay: .3 }}
         >
             <motion.nav
                 className="nav-bar-container"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 1 }}
+                transition={{ duration: 0.5, delay: .4 }}
             >
                 <div className="nav-bar-header">
                     <motion.h1
@@ -61,7 +61,7 @@ function NavBar({ balance, onLogout }) {
                     <h2 className="title">Bestpresso Coffee</h2>
                 </div>
             </motion.nav>
-            <div className="hero">
+            <div className="nav-hero">
                 <motion.div
                     className="sidebar-menu"
                     initial={{ x: "-100%", opacity: 0 }}
@@ -129,6 +129,10 @@ function NavBar({ balance, onLogout }) {
                             <MotionLink to="/login" onClick={() => setIsMenuOpen(false)}>
                                 Login
                             </MotionLink>
+                            <MotionLink to="/signup" onClick={() => setIsMenuOpen(false)}>
+                                Sign Up
+                            </MotionLink>
+                            
                         </>
                     )}
                 </motion.div>

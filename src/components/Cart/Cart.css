@@ -6,7 +6,7 @@
 }
 #cart-title {
     font-size: 70px;
-    margin: 0 0 0 10px;
+    margin: 0 0 10px 10px;
     color: whitesmoke;
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
 }
@@ -47,8 +47,8 @@
   
 }
 #cart-product-name {
-    margin: 0;
     font-size: 45px;
+    margin: 0;
 }
 #cart-wrapper {
     display: flex;
@@ -108,7 +108,7 @@
     flex-direction: column;
     color: whitesmoke;
     font-weight: bolder;
-    margin: 0;
+    margin: 10px 0 10px 0;
 }
 .total-and-purchase p, .total-and-purchase button{
     margin: 0 0 10px 10px;
@@ -119,4 +119,7 @@
 #cart-empty{
     margin-left: 10px;
     font-size: 50px;
+    color: whitesmoke;
+    font-size: bolder;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
 }

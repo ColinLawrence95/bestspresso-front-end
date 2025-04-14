@@ -75,9 +75,10 @@ function ProductList() {
         <div className="products-page-container">
             <motion.div
                 className="search-fields"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 1 }}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20, transition: { duration: .75 } }}
+                transition={{ duration: 1, delay: 0.75 }}
             >
                 <h4 id="product-list-title">Our Products</h4>
                 <div className="name-search">
@@ -87,17 +88,13 @@ function ProductList() {
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         placeholder="Search by Name"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 1 }}
+                    
                     />
                 </div>
                 <motion.select
                     value={sortOption}
                     onChange={(e) => setSortOption(e.target.value)}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 1 }}
+              
                 >
                     <option value="">Sort By</option>
                     <option value="name">Name (A-Z)</option>
@@ -110,7 +107,8 @@ function ProductList() {
                 className="product-list"
                 initial={{ opacity: 0, x: -75 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 1.5 }}
+                exit={{ opacity: 0, x: -75, transition: { duration: .75 } }}
+                transition={{ duration: 1, delay: 0.75 }}
             >
                 {sortedProducts.length > 0 ? (
                     sortedProducts.map((product) => (

@@ -1,15 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+
 import "./Footer.css";
 
 function Footer() {
   return (
     <motion.footer
       className="footer"
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
+      eexit={{ opacity: 0, y: -40, transition: { duration: .75 } }}
+      transition={{ duration: 1, delay: 4 }}
     >
       <div className="footer-container">
         <div className="footer-links">

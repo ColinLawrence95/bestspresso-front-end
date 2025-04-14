@@ -1,0 +1,52 @@
+
+.sign-page-wrapper{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-family: "Red Hat Display";
+    background-color: rgba(114, 96, 85, 0.3);
+    padding-bottom: 200px;
+    overflow-y: hidden;
+    
+    
+}
+.sign-elements{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    padding: 40px;
+    margin: 50px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
+    border-radius: 8px;
+    border: 5px solid  rgba(99, 45, 20, 0.87);
+}
+.sign-elements form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+   
+}
+.sign-elements input{
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+.sign-elements button{
+    width: 100px;
+    margin-bottom: 20px
+}
+.sign-elements h2{
+    font-size: 50px;
+    margin: 0 0 20px 0;
+}
+.sign-elements p, .sign-elements a{
+    font-size: 20px;
+}

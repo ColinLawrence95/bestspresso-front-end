@@ -14,6 +14,7 @@ a {
     display: flex;
     align-items: top;
     flex-direction: column;
+    background-color: rgba(114, 96, 85, 0.3);
 }
 input {
     width: 130px;
@@ -30,7 +31,7 @@ select {
     justify-content: left;
     gap: 20px;
     align-items: center;
-    background-color: rgba(114, 96, 85, 0.3);
+  
     padding: 0 0 5px 0px;
     margin: 0;
 }

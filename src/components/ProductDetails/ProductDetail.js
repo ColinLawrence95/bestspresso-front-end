@@ -15,7 +15,6 @@ import coffee8 from "../../images/coffee/coffee8.jpg";
 import coffee9 from "../../images/coffee/coffee9.jpg";
 import coffee10 from "../../images/coffee/coffee10.jpg";
 
-
 const coffeeImages = [
     coffee1,
     coffee2,
@@ -127,8 +126,8 @@ function ProductDetail() {
             className="details-page-container"
             initial={{ opacity: 0, x: -75 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            exit={{ opacity: 0, x: -100 }}
+            exit={{ opacity: 0, x: -75, transition: { duration: 0.75 } }}
+            transition={{ duration: 1, delay: 0.75 }}
         >
             <div
                 className="details-product-image"

@@ -1,0 +1,64 @@
+.history-page-container{
+    background-color: rgba(114, 96, 85, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+#history-title{
+    font-size: 70px;
+    margin: 0 0 0 10px;
+    color: whitesmoke;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
+}
+.history-wrapper{
+    background-color: rgba(99, 45, 20, 0.87);
+    margin: 5px 10px 5px 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:630px;
+    border-radius: 8px;
+}
+.history-element{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.836);
+    font-family: "Red Hat Display";
+    border-radius: 8px;
+    margin: 5px;
+}
+.history-element-top-row{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.history-items{
+    margin: 5px 0 5px 10px;
+    font-size: 20px;
+}   
+#history-total{
+    margin: 0 0 10px 48px;
+    font-size: 25px
+}
+#history-products-link{
+    color: whitesmoke;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
+    font-size: 20px;
+    margin: 0 0 0 10px;
+    font-family: "Red Hat Display";
+    font-weight: bolder;
+    width: 160px;
+
+}
+#history-empty{
+    font-size: 50px;
+    font-weight: bolder;
+    color: whitesmoke;
+    font-family: "Red Hat Display";
+    margin-left: 10px;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
+}

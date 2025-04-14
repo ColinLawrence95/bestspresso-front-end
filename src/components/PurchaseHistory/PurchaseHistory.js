@@ -1,7 +1,8 @@
-// src/components/PurchaseHistory.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "./PurchaseHistory.css";
+import { motion } from "motion/react";
 
 function PurchaseHistory() {
     const [purchases, setPurchases] = useState([]);
@@ -27,13 +28,16 @@ function PurchaseHistory() {
             setPurchases(response.data.purchases);
             setError(null);
         } catch (err) {
-            setError("Failed to load purchase history: " + (err.response ? err.response.data.error : err.message));
+            setError(
+                "Failed to load purchase history: " +
+                    (err.response ? err.response.data.error : err.message)
+            );
             console.error(err);
         } finally {
             setLoading(false);
         }
     };
-
+    const MotionLink = motion.create(Link);
     if (error)
         return (
             <div>
@@ -41,37 +45,56 @@ function PurchaseHistory() {
                 <Link to="/login">Login</Link> | <Link to="/">Back to Home</Link>
             </div>
         );
-    if (loading) return <div>Loading purchase history...</div>;
+    if (loading) return <div></div>;
 
     return (
-        <div>
-            <h2>Your Purchase History</h2>
+        <motion.div
+            className="history-page-container"
+            initial={{ opacity: 0, x: -75 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -75, transition: { duration: 0.75 } }}
+            transition={{ duration: 1, delay: 0.75 }}
+        >
+            <MotionLink
+                to="/products"
+                id="history-products-link"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", bounce: 0.7 }}
+            >
+                Back to Products
+            </MotionLink>
+            <h2 id="history-title">My Purchase History</h2>
             {purchases.length === 0 ? (
-                <p>No purchases yet</p>
+                <p id="history-empty">No purchases yet</p>
             ) : (
-                <ul style={{ listStyle: "none", padding: 0 }}>
+                <div className="history-wrapper">
                     {purchases.map((purchase) => (
-                        <li key={purchase.id}>
-                            <p>
-                                <strong>Date:</strong> {new Date(purchase.date).toLocaleString()}
-                            </p>
-                            <p>
-                                <strong>Total:</strong> ${purchase.total.toFixed(2)}
-                            </p>
-                            <ul>
+                        <div className="history-element" key={purchase.id}>
+                            <div className="history-element-top-row">
+                                <label>
+                                    <strong>Transaction #:</strong> {purchase.id}
+                                </label>
+                                <label>
+                                    <strong>Date:</strong>{" "}
+                                    {new Date(purchase.date).toLocaleString()}
+                                </label>
+                            </div>
+                            <ul className="history-items">
                                 {purchase.items.map((item) => (
                                     <li key={item.id}>
-                                        {item.name} - ${item.price.toFixed(2)} x {item.quantity} = $
+                                        {item.name} ${item.price.toFixed(2)} x {item.quantity} = $
                                         {item.subtotal.toFixed(2)}
                                     </li>
                                 ))}
                             </ul>
-                        </li>
+                            <p id="history-total">
+                                <strong>Total:</strong> ${purchase.total.toFixed(2)}
+                            </p>
+                        </div>
                     ))}
-                </ul>
+                </div>
             )}
-            <Link to="/">Back to Home</Link>
-        </div>
+        </motion.div>
     );
 }
 
