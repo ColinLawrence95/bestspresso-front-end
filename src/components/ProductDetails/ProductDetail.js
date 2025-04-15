@@ -35,7 +35,7 @@ function ProductDetail() {
     const handleAddToCart = () => {
         const token = localStorage.getItem("token");
         if (!token) {
-            setError("Please log in to add items to cart");
+            toast.error("Please log in to add items to cart");
             return;
         }
 
@@ -48,7 +48,7 @@ function ProductDetail() {
                 toast.success(`${quantity} ${product.name}(s) added to cart!`);
             })
             .catch((err) => {
-                setError(
+                toast.error(
                     "Failed to add to cart: " +
                         (err.response ? err.response.data.error : err.message)
                 );
@@ -59,13 +59,13 @@ function ProductDetail() {
     const handleRateProduct = () => {
         const token = localStorage.getItem("token");
         if (!token) {
-            setError("Please log in to rate this product");
+            toast.error("Please log in to rate this product");
             return;
         }
 
         const ratingValue = parseFloat(newRating);
         if (isNaN(ratingValue) || ratingValue < 0 || ratingValue > 5) {
-            setError("Rating must be a number between 0 and 5");
+            toast.error("Rating must be a number between 0 and 5");
             return;
         }
 
