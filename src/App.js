@@ -24,7 +24,7 @@ import "./App.css";
 function App() {
     const [balance, setBalance] = useState(null);
     const location = useLocation();
-    const [hasRendered, setHasRendered] = useState(false); // ✅ new flag
+    const [hasRendered, setHasRendered] = useState(false);
 
     useEffect(() => {
         document.title = 'Bestpresso';
