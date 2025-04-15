@@ -131,13 +131,13 @@ h3 {
     color: whitesmoke;
     font-family: "Red Hat Display";
 }
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
     #flavor-text{
         font-size: 14px;
         width: 200px;
         text-align: right;
-        margin-bottom: 30px;
-        margin-left: 25px;
+        margin-bottom: 40px;
+        margin-right: 40px;
     }
     .sidebar-menu a{
         font-size: 14px;
@@ -155,7 +155,5 @@ h3 {
     #greeting-username{
         font-size: 12px;
     }
-    #flavor-text{
-        display: none;
-    }
+
     }
