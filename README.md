@@ -4,6 +4,8 @@
 
 Bestpresso is your go-to online store for premium coffee blends, designed for coffee enthusiasts who value quality and convenience. Built with Flask and React, it delivers a responsive and intuitive interface for browsing with fun stylized animations. It also includes a paginated product list (9 products per page), viewing product details, managing a cart, rating products, and signing in/out. Each product displays a consistent local photo (randomly assigned once on the backend). I created Bestpresso as a learning expericance to dive into the world of e-commerce and digital marketplaces.
 
+Deployed Site: https://bestpresso.netlify.app
+
 ## Getting Started
 
 - **Deployed App**: Bestpresso
