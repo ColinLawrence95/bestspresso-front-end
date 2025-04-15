@@ -32,13 +32,13 @@ function App() {
     }, []);
 
     useEffect(() => {
-        // Wait for at least a render cycle before showing the footer
+     
         const timeout = setTimeout(() => {
             setHasRendered(true);
-        }, 300); // you can tweak this to match animation timing
+        }, 300); 
 
         return () => clearTimeout(timeout);
-    }, [location.pathname]); // re-trigger on route change if needed
+    }, [location.pathname]); 
 
     const fetchBalance = async () => {
         const token = localStorage.getItem("token");
