@@ -37,7 +37,7 @@ function SignUp({ onSignUp }) {
                 className="sign-elements"
                 initial={{ opacity: 0, y: -40 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -40, transition: { duration: .75 } }}
+                exit={{ opacity: 0, y: -40, transition: { duration: 0.75 } }}
                 transition={{ duration: 1, delay: 0.75 }}
             >
                 <h2>Sign Up</h2>
@@ -62,7 +62,13 @@ function SignUp({ onSignUp }) {
                                 placeholder="Password"
                             />
                         </div>
-                        <button type="submit">Sign Up</button>
+                        <motion.button
+                            type="submit"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ type: "spring", bounce: 0.7 }}
+                        >
+                            Sign Up
+                        </motion.button>
                     </form>
                 </div>
                 <p>Have an account?</p>

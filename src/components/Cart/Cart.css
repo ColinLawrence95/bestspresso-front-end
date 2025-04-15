@@ -214,4 +214,7 @@
      width: 330px;
      margin-left: 15px;
     }
+    #cart-empty{
+        text-align: center;
+    }
 }

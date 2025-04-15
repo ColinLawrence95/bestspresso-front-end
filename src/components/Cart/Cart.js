@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../Cart/Cart.css";
 import { motion } from "motion/react";
+import { toast } from "react-toastify";
 
 function Cart({ onPurchase }) {
     const [cart, setCart] = useState(null);
@@ -123,7 +124,7 @@ function Cart({ onPurchase }) {
                 }
             )
             .then((response) => {
-                alert("Purchase successful! New balance: " + response.data.new_balance);
+                toast.success("Purchase successful! New balance: " + response.data.new_balance);
                 fetchCart();
                 if (onPurchase) onPurchase();
             })

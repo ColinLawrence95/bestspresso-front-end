@@ -63,7 +63,9 @@ function Login({ onLogin }) {
                                 placeholder="Password"
                             />
                         </div>
-                        <button type="submit">Log in</button>
+                        <motion.button type="submit"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ type: "spring", bounce: 0.7 }}>Log in</motion.button>
                     </form>
                 </div>
                 <p>Don't have an account?</p>
