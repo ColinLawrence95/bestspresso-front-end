@@ -130,7 +130,7 @@ function ProductDetail() {
                         value={newRating}
                         onChange={(e) => setNewRating(e.target.value)}
                     />
-                    <button onClick={handleRateProduct}>Rate!</button>
+                    <button onClick={handleRateProduct}>Rate</button>
                 </div>
                 <h4 className="details-product-stock">{product.stock} in Stock</h4>
                 <div className="quantity">
