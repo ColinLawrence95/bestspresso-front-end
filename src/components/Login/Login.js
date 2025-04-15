@@ -16,14 +16,14 @@ function Login({ onLogin }) {
                 username,
                 password,
             });
-            console.log("Login Response:", response.data);
+          
             const token = response.data.token;
             if (!token) {
                 setError("No token received from server");
                 return;
             }
             localStorage.setItem("token", token);
-            console.log("Stored Token:", localStorage.getItem("token"));
+        
             navigate("/");
             if (onLogin) onLogin();
         } catch (err) {
