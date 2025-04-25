@@ -159,7 +159,6 @@ function NavBar({ balance, onLogout }) {
                     <br />
                     Join the Bestpresso family—where passion brews in every cup."
                     <br />
-                    <span id="team-sign">- The Bestpresso Team</span>
                 </h1>
             </div>
         </motion.div>

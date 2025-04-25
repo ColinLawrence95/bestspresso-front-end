@@ -94,7 +94,7 @@ select::-ms-expand {
     background-color: rgba(255, 255, 255, 0.884);
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
-    width: 500px;
+    width: 480px;
     height: 300px;
     margin: 11px;
 }
@@ -165,7 +165,7 @@ select::-ms-expand {
     background-color: #ffbe87;
     color: black;
 }
-@media (max-width: 768px) {
+@media (max-width: 750px) {
     #product-list-title{
         font-size: 20px;
         margin-left: 10px
@@ -177,6 +177,7 @@ select::-ms-expand {
     }
     .product-image{
         height: 93px;
+        width: 164px;
        
     }
     #product-name,
