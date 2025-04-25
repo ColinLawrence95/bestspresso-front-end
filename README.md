@@ -1,5 +1,8 @@
 # Bestpresso Frontend
-![logo](public/cup.png)
+![p1](public/s1.png)
+![p2](public/s2.png)
+![p4](public/s4.png)
+![p5](public/s5.png)
 ## About Bestpresso
 
 Bestpresso is your go-to online store for premium coffee blends, designed for coffee enthusiasts who value quality and convenience. Built with Flask and React, it delivers a responsive and intuitive interface for browsing with fun stylized animations. It also includes a paginated product list (9 products per page), viewing product details, managing a cart, rating products, and signing in/out. Each product displays a consistent local photo (randomly assigned once on the backend). I created Bestpresso as a learning expericance to dive into the world of e-commerce and digital marketplaces.
